@@ -1,0 +1,32 @@
+.box--location {
+  background: rgb(255, 255, 255, 0.4);
+  border-radius: 1.35rem;
+  padding: 0.8rem 1.2rem;
+  color: black;
+  text-align: center;
+  border: none;
+  transition: all 0.5s ease;
+  margin: 70px 70px 20px 81px;
+}
+
+.search-position {
+  position: absolute;
+  width: 52%;
+  right: 0;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+.search-buttons .btn-1 .btn-2 {
+  margin: 0px;
+  padding: 0px;
+}
+.icon-current {
+  position: relative;
+  left: 50px;
+}

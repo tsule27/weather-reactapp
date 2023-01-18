@@ -1,0 +1,25 @@
+.box--current-weather {
+  background: rgb(255, 255, 255, 0.4);
+  border-radius: 1.35rem;
+  padding: 0.8rem 1.2rem;
+  color: black;
+  text-align: center;
+  border: none;
+  transition: all 0.5s ease;
+}
+
+.temperature a {
+  color: rgb(11, 11, 11);
+  text-decoration: none;
+  cursor: default;
+  text-decoration-line: none;
+}
+
+.weather-data-details {
+  padding: 5px;
+}
+.icon-humidity,
+.icon-windspeed {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}

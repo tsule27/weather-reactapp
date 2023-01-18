@@ -1,0 +1,20 @@
+.line-break {
+  border-top: thin solid #178aa5;
+  margin-top: 20px;
+  max-width: 555px;
+}
+
+.card-body {
+  background: rgb(255, 255, 255, 0.4);
+  max-height: 130px;
+  width: 90px;
+  margin-top: 10px;
+  padding: 22px 8px;
+  border-radius: 15px;
+  box-shadow: 0 1px 8px rgb(57, 127, 142, 0.3);
+  text-align: center;
+  font-size: 12.5px;
+}
+.weather-forecast-temperature-min {
+  color: rgb(136, 136, 136);
+}
