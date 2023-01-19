@@ -10,8 +10,8 @@
 }
 
 .search-position {
-  position: absolute;
-  width: 52%;
+  margin-left: auto;
+  width: 50%;
   right: 0;
 }
 

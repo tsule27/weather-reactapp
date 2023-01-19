@@ -87,7 +87,7 @@ export default function Forecast() {
               </div>
             </div>
           </div>
-          <div className="col 2">
+          <div className="col-2">
             <div className="card-body">
               <div className="weather-forecast-date">
                 Sunday

@@ -24,7 +24,7 @@ export default function Main() {
           <span className="d-flex align-items-center weather-data-details" />{" "}
           <img alt="" src=" icons/wind.png" className="icon-windspeed" />
           <span></span>
-          <span> Wind Speed:5 km/h</span>
+          <span>Wind Speed:5 km/h</span>
         </div>
       </div>
       <div className="col-6 d-flex">
