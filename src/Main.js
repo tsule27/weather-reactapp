@@ -7,7 +7,7 @@ export default function Main() {
       <div className="col-sm-6 box--current-weather">
         <h3>Partly Cloudy</h3>
         <div className="temperature d-flex align-items-top">
-          <h4 className="temperature"></h4>
+          <p className="temperature"></p>
           <span className="units">
             <a href="/" className="active">
               7 °C

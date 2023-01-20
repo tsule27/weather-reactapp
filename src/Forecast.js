@@ -6,7 +6,7 @@ export default function Forecast() {
     <div className="forecast-react">
       <div className="line-break"></div>
       <div className="weather-forecast">
-        <div className="row gx-0">
+        <div className="row gx-0 justify-content-center">
           <div className="col-2">
             <div className="card-body">
               <div className="weather-forecast-date">
@@ -27,7 +27,7 @@ export default function Forecast() {
               </div>
             </div>
           </div>
-          <div className="col 2">
+          <div className="col-2">
             <div className="card-body">
               <div className="weather-forecast-date">
                 Thursday
@@ -47,7 +47,7 @@ export default function Forecast() {
               </div>
             </div>
           </div>
-          <div className="col 2">
+          <div className="col-2">
             <div className="card-body">
               <div className="weather-forecast-date">
                 Friday
@@ -67,7 +67,7 @@ export default function Forecast() {
               </div>
             </div>
           </div>
-          <div className="col 2">
+          <div className="col-2">
             <div className="card-body">
               <div className="weather-forecast-date">
                 Saturday
