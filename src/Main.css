@@ -13,7 +13,10 @@
   text-decoration: none;
   cursor: default;
   text-decoration-line: none;
-  font-size: 70px;
+}
+
+.units {
+  font-size: 40px;
 }
 
 .weather-data-details {
