@@ -10,7 +10,7 @@ export default function Main() {
           <p className="temperature"></p>
           <span className="units">
             <a href="/" className="active">
-              7 °C
+              <h4>7</h4> °C
             </a>{" "}
             | <a href="/">°F</a>
           </span>
