@@ -12,6 +12,7 @@ export default function Navigation() {
               placeholder="Enter location"
               autocomplete="off"
               className="form-control "
+              autoFocus="on"
             />
           </div>
           <span className="col-6 search-buttons">
