@@ -1,40 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Main.css";
+import "./Navigation.css";
+import WeatherInfo from "./WeatherInfo";
 
-export default function Main() {
-  return (
-    <div className="row g-0 d-flex align-items-end mt-4 position-relative">
-      <div className="col-sm-6 box--current-weather">
-        <h3>Partly Cloudy</h3>
-        <div className="temperature d-flex align-items-top">
-          <p className="temperature"></p>
-          <span className="units">
-            <a href="/" className="active">
-              <h4>7</h4> °C
-            </a>{" "}
-            | <a href="/">°F</a>
-          </span>
+export default function Main(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "106dbabb3d74f0b0a58d9b9o57ec7ta4";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <>
+        <div className="row g-0  ">
+          <div className="search-position mb-3">
+            <form onSubmit={handleSubmit}>
+              <div className="search-bar">
+                <div className="col-6 searching">
+                  <input
+                    type="text"
+                    placeholder="Enter location"
+                    autocomplete="off"
+                    className="form-control "
+                    autoFocus="on"
+                    onChange={handleCityChange}
+                  />
+                </div>
+                <span className="col-6 search-buttons">
+                  <input type="submit" className="btn 1" value=" 🔍 " />
+                  <input
+                    type="submit"
+                    className="btn btn-light-2"
+                    value=" 📍"
+                  />
+                </span>
+              </div>
+            </form>
+          </div>
+          <WeatherInfo data={weatherData} />
         </div>
-        <div className="d-flex justify-content-start weather-data">
-          <span className="d-flex align-items-center weather-data-details">
-            <img alt="" src=" icons/humidity.png" className="icon-humidity" />
-            <span></span>
-            <span> Humidity:50% </span>
-          </span>
-          <span className="d-flex align-items-center weather-data-details" />{" "}
-          <img alt="" src=" icons/wind.png" className="icon-windspeed" />
-          <span></span>
-          <span>Wind Speed:5 km/h</span>
-        </div>
-      </div>
-      <div className="col-6 d-flex">
-        <img
-          className="icon-current"
-          src="https://openweathermap.org/img/wn/02d@2x.png"
-          alt="Partly Cloudy"
-          width="160px"
-        />
-      </div>
-    </div>
-  );
+      </>
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }

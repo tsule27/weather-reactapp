@@ -1,6 +1,6 @@
 import React from "react";
 import "./Weather.css";
-import Navigation from "./Navigation";
+
 import Main from "./Main";
 import Forecast from "./Forecast";
 import Footer from "./Footer";
@@ -12,7 +12,6 @@ export default function Weather() {
         <div className="weather-app-wrapper">
           <div className="weather-app">
             <div className="overview">
-              <Navigation />
               <Main />
               <Forecast />
             </div>
