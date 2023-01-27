@@ -12,13 +12,13 @@ export default function Main(props) {
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
-      temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      temperature: response.data.temperature.current,
+      humidity: response.data.temperature.humidity,
+      date: new Date(response.data.time * 1000),
+      description: response.data.condition.description,
+      icon: response.data.condition.icon,
       wind: response.data.wind.speed,
-      city: response.data.name,
+      city: response.data.city,
     });
   }
   function handleSubmit(event) {
@@ -41,7 +41,7 @@ export default function Main(props) {
       <>
         <div className="row g-0  ">
           <div className="search-position mb-3">
-            <form onSubmit={handleSubmit}>
+            <form>
               <div className="search-bar">
                 <div className="col-6 searching">
                   <input
@@ -50,11 +50,16 @@ export default function Main(props) {
                     autocomplete="off"
                     className="form-control "
                     autoFocus="on"
-                    onChange={handleCityChange}
                   />
                 </div>
                 <span className="col-6 search-buttons">
-                  <input type="submit" className="btn 1" value=" 🔍 " />
+                  <input
+                    type="submit"
+                    className="btn 1"
+                    value=" 🔍 "
+                    onSubmit={handleSubmit}
+                    onChange={handleCityChange}
+                  />
                   <input
                     type="submit"
                     className="btn btn-light-2"
