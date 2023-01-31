@@ -12,20 +12,19 @@ export default function WeatherInfo(props) {
       </div>
       <div className="row g-0 d-flex align-items-end mt-4 position-relative">
         <div className="col-sm-6 box--current-weather">
-          <h3>{props.data.description}</h3>
+          <h3 className="text-capitalize">{props.data.description}</h3>
           <div className="temperature d-flex align-items-top">
             <WeatherTemperature celsius={props.data.temperature} />
           </div>
           <div className="d-flex justify-content-start weather-data">
             <span className="d-flex align-items-center weather-data-details">
-              <img alt="" src=" icons/humidity.png" className="icon-humidity" />
-              <span></span>
-              <span> Humidity:{props.data.humidity}%</span>
+              <img alt="" src="icons/humidity.png" className="icon-humidity" />
+              <span> {props.data.humidity}%</span>
             </span>
-            <span className="d-flex align-items-center weather-data-details" />{" "}
-            <img alt="" src=" icons/wind.png" className="icon-windspeed" />
-            <span></span>
-            <span>Wind:{props.data.wind.speed}km/h</span>
+            <span className="d-flex align-items-center weather-data-details">
+              <img alt="" src="icons/wind.png" className="icon-windspeed" />
+              <span>{props.data.wind}km/h</span>
+            </span>
           </div>
         </div>
         <div className="col-6 d-flex">

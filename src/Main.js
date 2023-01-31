@@ -41,7 +41,7 @@ export default function Main(props) {
       <>
         <div className="row g-0  ">
           <div className="search-position mb-3">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="search-bar">
                 <div className="col-6 searching">
                   <input
@@ -50,16 +50,11 @@ export default function Main(props) {
                     autocomplete="off"
                     className="form-control "
                     autoFocus="on"
+                    onChange={handleCityChange}
                   />
                 </div>
                 <span className="col-6 search-buttons">
-                  <input
-                    type="submit"
-                    className="btn 1"
-                    value=" 🔍 "
-                    onSubmit={handleSubmit}
-                    onChange={handleCityChange}
-                  />
+                  <input type="submit" className="btn 1" value=" 🔍 " />
                   <input
                     type="submit"
                     className="btn btn-light-2"

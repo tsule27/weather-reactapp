@@ -12,7 +12,7 @@ export default function Weather() {
         <div className="weather-app-wrapper">
           <div className="weather-app">
             <div className="overview">
-              <Main defaultCity="New York" />
+              <Main defaultCity="Philadelphia" />
               <Forecast />
             </div>
           </div>
