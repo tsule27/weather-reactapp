@@ -8,7 +8,6 @@ import Forecast from "./Forecast";
 export default function Main(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
-  // const [currentLocation, setLocationData] = useState({ ready: false });
 
   function handleResponse(response) {
     setWeatherData({
@@ -37,12 +36,19 @@ export default function Main(props) {
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
-  // function currentLocation(position){
-  // let apiKey = "106dbabb3d74f0b0a58d9b9o57ec7ta4";
-  // let lat = position.coordinates.latitude;
-  // let lon = position.coordinates.longitude;
-  // let unit = "metric";
-  //}
+
+  function getLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(currentLocation);
+  }
+
+  function currentLocation(position) {
+    let apiKey = "106dbabb3d74f0b0a58d9b9o57ec7ta4";
+    let lat = position.coordinates.latitude;
+    let lon = position.coordinates.longitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
   if (weatherData.ready) {
     return (
       <div className="row g-0  ">
@@ -61,7 +67,12 @@ export default function Main(props) {
               </div>
               <span className="col-6 search-buttons">
                 <input type="submit" className="btn 1" value=" 🔍 " />
-                <input type="submit" className="btn btn-light-2" value=" 📍" />
+                <input
+                  type="submit"
+                  className="btn btn-light-2"
+                  value=" 📍"
+                  onClick={getLocation}
+                />
               </span>
             </div>
           </form>
